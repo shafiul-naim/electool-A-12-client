@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
-    <div>
+    <div className="px-12 max-w-7xl mx-auto">
       <Navbar></Navbar>
 
       <Routes>

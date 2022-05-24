@@ -1,0 +1,56 @@
+[
+  {
+    "_id": 1,
+    "name": "Wire Strippers",
+    "description": "Wire strippers are plier-like tools used to remove the insulating outer sheath from cables in order to attach terminals or connectors to the central core via crimping or soldering. Some strippers also allow electricians to cut right through the copper or conduit in a wire or cable.",
+    "img": "https://i.ibb.co/0jf5zqw/book-1.jpg",
+    "minimumQuantity": "100",
+    "maximumQuantity": "500",
+    "ppu": "500"
+  },
+  {
+    "_id": 2,
+    "name": "Insulated screwdrivers",
+    "description": "Screwdrivers are one of the most traditional of tools but are still indispensable for most electricians who frequently require access to electrical containers sealed with screws. There are multiple sizes and shapes available for compatibility with the abundance of screw designs. ",
+    "img": "https://i.ibb.co/bXvC2mJ/book-2.jpg",
+    "minimumQuantity": "100",
+    "maximumQuantity": "500",
+    "ppu": "400"
+  },
+  {
+    "_id": 3,
+    "name": " Insulated pliers",
+    "img": "https://i.ibb.co/bXvC2mJ/book-2.jpg",
+    "description": "Pliers are another tool that has been with us for a long time. Their versatility means they can be used to accomplish a multitude of tasks requiring ‘torque’, working in a much more robust manner than would be possible with the use of bare hands alone.",
+    "minimumQuantity": "100",
+    "maximumQuantity": "500",
+    "ppu": "350"
+  },
+  {
+    "_id": 4,
+    "name": "Electrical tape",
+    "img": "https://i.ibb.co/bXvC2mJ/book-2.jpg",
+    "description": "Electrical tape is used to insulate wires or other items that conduct electricity.It is self-adhesive and pressure-sensitive, built to resist abrasion, heat and liquids in order to protect the sensitive conducting core within electrical wiring.",
+    "minimumQuantity": "100",
+    "maximumQuantity": "500",
+    "ppu": "200"
+  },
+  {
+    "_id": 5,
+    "name": "Hacksaws",
+    "img": "https://i.ibb.co/bXvC2mJ/book-2.jpg",
+    "description": "Hacksaws are fine-toothed saws designed primarily for cutting through metal. The thin blades are held at tension in an adjustable frame, between the head of the saw and the pistol grip handle. These blades can break or become blunt but are easily replaceable.",
+    "minimumQuantity": "100",
+    "maximumQuantity": "500",
+    "ppu": "650"
+  },
+  {
+    "_id": 6,
+    "name": " Cable cutters",
+    "description": "Cable cutters are a staple of every electrician’s tool kit. These versatile tools feature steel blades and cut through standard wiring easily. Stronger cable shears will make short work of even thicker cabling.",
+    "img": "https://i.ibb.co/20zhvN4/book-6.png",
+    "minimumQuantity": "100",
+    "maximumQuantity": "500",
+    "ppu": "300"
+  }
+]
