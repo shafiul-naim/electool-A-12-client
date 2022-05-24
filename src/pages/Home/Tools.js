@@ -10,7 +10,7 @@ const Tools = () => {
         .then(data => SetTools(data))
     }, ([]));
     return (
-        <div className='grid grid-rows-3 gap-10'>
+        <div className='grid grid-row-3 gap-10'>
             {
                 tools.map(tool => <Tool key={tool._id} tool={tool}></Tool>)
             }

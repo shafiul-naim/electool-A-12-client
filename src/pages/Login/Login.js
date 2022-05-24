@@ -22,6 +22,10 @@ const Login = () => {
 
   let signInError;
 
+  const navigate = useNavigate();
+  const location = useLocation()
+  let from = location.state?.from?.pathname || "/";
+
 /*   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/"; */
@@ -42,6 +46,9 @@ const Login = () => {
         <small>{error?.message || gError?.message}</small>
       </p>
     );
+  }
+  if(user || gUser){
+    navigate(from, { replace: true });
   }
 
   const onSubmit = (data) => {
