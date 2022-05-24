@@ -19,18 +19,12 @@ const ToolDetails = () => {
   const [disable, setDisable] = useState(false);
   const handlePurchase = () => {
     const quantity = quantityRef.current.value;
-    console.log("quantity", quantity);
-    console.log("min quantity", tool.minimumQuantity);
-    console.log("available quantity", tool.maximumQuantity);
     if (
       quantity < parseInt(tool.minimumQuantity) ||
       quantity > parseInt(tool.maximumQuantity)
     ) {
-      console.log("success");
       setDisable(true);
-    } else {
-      console.log("notsuccess");
-    }
+    } 
   };
 
   const handleDisable = () => {
