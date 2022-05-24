@@ -1,19 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Tool = () => {
+const Tool = ({ tool }) => {
+  const { _id ,name, img, description, minimumQuantity, maximumQuantity, ppu } = tool;
+
+
+  const navigate = useNavigate();
+  const navigateToToolDetails = (id) => {
+    navigate(`/tool/${id}`);
+  };
   return (
-    <div class="card lg:card-side bg-base-100 shadow-xl">
+    <div class="card lg:card-side bg-base-100 shadow-xl w-9/12 mx-auto">
       <figure>
-        <img
-          src="https://api.lorem.space/image/album?w=400&h=400"
-          alt="Album"
-        />
+        <img src={img} alt="Album" className=" w-2/5" />
       </figure>
-      <div class="card-body">
-        <h2 class="card-title">New album is released!</h2>
-        <p>Click the button to listen on Spotiwhy app.</p>
+      <div class="card-body w-3/5 ">
+        <h2 class="card-title text-primary">{name}</h2>
+        <p className="">{description}</p>
+        <p className="text-xl">Price per unit: {ppu}</p>
+        <p className="text-xl">Minimum quantity: {minimumQuantity}</p>
+        <p className="text-xl">Maximum quantity: {maximumQuantity}</p>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary">Listen</button>
+          <button onClick={() => navigateToToolDetails(_id)} class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white">
+            Purchase
+          </button>
         </div>
       </div>
     </div>

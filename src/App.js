@@ -8,6 +8,9 @@ import BusinessSummary from "./pages/Home/BusinessSummary";
 import Review from "./pages/Home/Review";
 import Footer from "./pages/Shared/Footer";
 import NotFound from "./pages/NotFound/NotFound";
+import ToolDetails from "./pages/Home/ToolDetails";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Login/Signup";
 
 function App() {
   return (
@@ -17,8 +20,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/tools" element={<Tools></Tools>}></Route>
+        <Route path="/tool/:toolId" element={<ToolDetails></ToolDetails>}></Route>
         <Route path="/business" element={<BusinessSummary></BusinessSummary>}></Route>
         <Route path="/review" element={<Review></Review>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 
