@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Navbar from "./pages/Shared/Navbar";
 import { Route, Routes } from "react-router-dom";
@@ -11,6 +10,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import ToolDetails from "./pages/Home/ToolDetails";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Login/Signup";
+import RequireAuth from "./pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -21,8 +21,18 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/tools" element={<Tools></Tools>}></Route>
-        <Route path="/tool/:toolId" element={<ToolDetails></ToolDetails>}></Route>
-        <Route path="/business" element={<BusinessSummary></BusinessSummary>}></Route>
+        <Route
+          path="/tool/:toolId"
+          element={
+            <RequireAuth>
+              <ToolDetails></ToolDetails>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/business"
+          element={<BusinessSummary></BusinessSummary>}
+        ></Route>
         <Route path="/review" element={<Review></Review>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
