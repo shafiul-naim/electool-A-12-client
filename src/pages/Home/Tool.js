@@ -10,11 +10,11 @@ const Tool = ({ tool }) => {
     navigate(`/tool/${id}`);
   };
   return (
-    <div class="card lg:card-side bg-base-100 shadow-xl w-9/12 mx-auto">
+    <div class="card lg:card-side bg-base-100 shadow-xl w-9/12 sm:w-full mx-auto">
       <figure>
-        <img src={img} alt="Album" className=" w-2/5" />
+        <img src={img} alt="Album" className=" lg:w-2/5 sm:w-full" />
       </figure>
-      <div class="card-body w-3/5 ">
+      <div class="card-body lg:w-3/5 sm:w-full ">
         <h2 class="card-title text-primary">{name}</h2>
         <p className="">{description}</p>
         <p className="text-xl">Price per unit: {ppu}</p>

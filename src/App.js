@@ -14,7 +14,7 @@ import RequireAuth from "./pages/Login/RequireAuth";
 
 function App() {
   return (
-    <div className="px-12 max-w-7xl mx-auto">
+    <div className=" max-w-7xl mx-auto">
       <Navbar></Navbar>
 
       <Routes>

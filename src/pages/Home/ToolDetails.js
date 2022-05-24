@@ -6,22 +6,22 @@ const ToolDetails = () => {
   const [tool, setTool] = useState([]);
 
   useEffect(() => {
-      const url = `tools.json/${toolId}`
+      const url = `http://localhost:5000/tools/${toolId}`
     fetch(url)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setTool(data));
   }, [toolId]);
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <img src={tool.img} alt="..." />
+    <div class="hero min-h-screen bg-base-100 px-12">
+      <div class="hero-content flex-col lg:flex-row-reverse p-5">
+        <img src={tool.img} alt="..." className="max-w-sm rounded-lg shadow-xl" />
         <div>
-          <h1 class="text-5xl font-bold">{tool.name}</h1>
+          <h1 class="text-3xl font-bold">{tool.name}</h1>
           <p className="">{tool.description}</p>
           <p className="text-xl">Price per unit: {tool.ppu}</p>
           <p className="text-xl">Minimum quantity: {tool.minimumQuantity}</p>
           <p className="text-xl">Maximum quantity: {tool.maximumQuantity}</p>
-          <button class="btn btn-primary">Get Started</button>
+          <button class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white">Get Started</button>
         </div>
       </div>
     </div>
