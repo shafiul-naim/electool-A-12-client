@@ -19,7 +19,7 @@ const Tool = ({ tool }) => {
         <p className="">{description}</p>
         <p className="text-xl">Price per unit: {ppu}</p>
         <p className="text-xl">Minimum quantity: {minimumQuantity}</p>
-        <p className="text-xl">Maximum quantity: {maximumQuantity}</p>
+        <p className="text-xl">Available quantity: {maximumQuantity}</p>
         <div class="card-actions justify-end">
           <button onClick={() => navigateToToolDetails(_id)} class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white">
             Purchase
