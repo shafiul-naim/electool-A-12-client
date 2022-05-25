@@ -8,7 +8,7 @@ const ToolDetails = () => {
   console.log(user);
   const { toolId } = useParams();
   const [tool, setTool] = useState([]);
-  const quantityRef = useRef();
+
   useEffect(() => {
     const url = `http://localhost:5000/tools/${toolId}`;
     fetch(url)
@@ -16,20 +16,23 @@ const ToolDetails = () => {
       .then((data) => setTool(data));
   }, [toolId]);
 
+  const quantityRef = useRef();
   const [disable, setDisable] = useState(false);
-  const handlePurchase = () => {
-    const quantity = quantityRef.current.value;
+
+  const handleDisable = () => {
+    let quantity = quantityRef.current.value;
+    console.log(quantity);
+
     if (
       quantity < parseInt(tool.minimumQuantity) ||
       quantity > parseInt(tool.maximumQuantity)
     ) {
       setDisable(true);
-    } 
+    } else {
+      setDisable(false);
+    }
   };
 
-  const handleDisable = () => {
-    setDisable(false);
-  };
   return (
     <div class="hero min-h-screen bg-base-100 px-12">
       <div class="hero-content flex-col lg:flex-row-reverse p-5">
@@ -44,36 +47,57 @@ const ToolDetails = () => {
           <p className="text-xl">Price per unit: {tool.ppu}</p>
           <input
             type="text"
-            value={user.displayName}
+            value={user?.displayName}
             disabled
-            class="my-2 input input-bordered w-full max-w-xs mx-auto"
+            class="my-2 input input-bordered w-full max-w-xs "
           />
           <input
             type="text"
-            value={user.email}
+            value={user?.email}
             disabled
-            class="my-2 input input-bordered w-full max-w-xs mx-auto"
+            class="my-2 input input-bordered w-full max-w-xs "
           />
           <input
             type="text"
             placeholder="Your Address"
-            class="my-2 input input-bordered w-full max-w-xs mx-auto"
+            class="my-2 input input-bordered w-full max-w-xs"
           />
           <input
             type="text"
             placeholder="Phone"
-            class="my-2 input input-bordered w-full max-w-xs mx-auto"
+            class="my-2 input input-bordered w-full max-w-xs "
           />
+          
+          <label class="label">
+            <span class="label-text">
+              Available quantity: {tool.maximumQuantity}
+            </span>
+          </label>
           <input
             ref={quantityRef}
             onChange={handleDisable}
             type="number"
-            class="my-2 input input-bordered w-full max-w-xs mx-auto"
+            class="my-2 input input-bordered w-full max-w-xs "
           />
+
+          <label class="label">
+            {quantityRef?.current?.value < parseInt(tool.minimumQuantity) && (
+              <span className="label-text-alt text-red-500">
+                Minimum order: {tool.minimumQuantity}
+              </span>
+            )}
+          </label>
+          <label class="label">
+            {quantityRef?.current?.value > parseInt(tool.maximumQuantity) && (
+              <span className="label-text-alt text-red-500">
+                Can not order more than: {tool.maximumQuantity}
+              </span>
+            )}
+          </label>
+
           <button
-            onClick={handlePurchase}
             disabled={disable}
-            class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white  mx-auto w-full max-w-xs"
+            class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white  w-full max-w-xs"
           >
             Purchase
           </button>
