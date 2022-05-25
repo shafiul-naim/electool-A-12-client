@@ -38,6 +38,8 @@ const ToolDetails = () => {
     const purchase = {
       name: user.displayName,
       email: user.email,
+      productName: tool.name,
+      price: tool.ppu,
       address: event.target.address.value,
       phone: event.target.phone.value,
       orderQuantity: event.target.orderQuantity.value,
