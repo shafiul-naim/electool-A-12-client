@@ -3,19 +3,16 @@ import banner from "../../images/banner.jpg";
 
 const Banner = () => {
   return (
-    <div className="hero min-h-screen" style={{ background: `url(${banner})` }}>
-      <div class="hero-overlay bg-opacity-60"></div>
-      <div class="hero-content text-center text-neutral-content">
-        <div class="max-w-md">
-          <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-          <p class="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-        </div>
-      </div>
+    <div class="hero min-h-screen bg-base-100 px-12">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <img src={banner} class="max-w-sm rounded-lg "  alt=""/>
+    <div>
+      <h1 class="text-5xl font-bold">Hello there !</h1>
+      <p class="py-6 pe-4 text-xl">We manufacture best electronic items.We ensure quality, durability, long term life span and always Available</p>
+      
     </div>
+  </div>
+</div>
   );
 };
 

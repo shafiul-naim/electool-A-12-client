@@ -33,74 +33,112 @@ const ToolDetails = () => {
     }
   };
 
+  const handlePurchase = (event) => {
+    event.preventDefault();
+    const purchase = {
+      name: user.displayName,
+      email: user.email,
+      address: event.target.address.value,
+      phone: event.target.phone.value,
+      orderQuantity: event.target.orderQuantity.value,
+    };
+    console.log(purchase);
+
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(purchase),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert("order places successfully");
+      });
+  };
+
   return (
-    <div class="hero min-h-screen bg-base-100 px-12">
-      <div class="hero-content flex-col lg:flex-row-reverse p-5">
-        <img
-          src={tool.img}
-          alt="..."
-          className="max-w-3/5 rounded-lg shadow-xl"
-        />
-        <div className="flex flex-col">
-          <h1 class="text-xl font-bold text-secondary">{tool.name}</h1>
-          <p className="">{tool.description}</p>
-          <p className="text-xl">Price per unit: {tool.ppu}</p>
-          <input
-            type="text"
-            value={user?.displayName}
-            disabled
-            class="my-2 input input-bordered w-full max-w-xs "
-          />
-          <input
-            type="text"
-            value={user?.email}
-            disabled
-            class="my-2 input input-bordered w-full max-w-xs "
-          />
-          <input
-            type="text"
-            placeholder="Your Address"
-            class="my-2 input input-bordered w-full max-w-xs"
-          />
-          <input
-            type="text"
-            placeholder="Phone"
-            class="my-2 input input-bordered w-full max-w-xs "
-          />
-          
-          <label class="label">
-            <span class="label-text">
-              Available quantity: {tool.maximumQuantity}
-            </span>
-          </label>
-          <input
-            ref={quantityRef}
-            onChange={handleDisable}
-            type="number"
-            class="my-2 input input-bordered w-full max-w-xs "
-          />
+    <div className="grid lg:grid-cols-2 sm:grid-rows-2 lg:h-screen my-5">
+      <div className="w-1/2 mx-auto pt-8">
+        <img src={tool.img} alt="..." className="max-w-1/2 rounded-lg " />
+        <h2 class="card-title mt-5 text-primary">{tool.name}</h2>
+        <p className="mb-5">{tool.description}</p>
+        <p className="text-xl">
+          Price per unit: <strong>{tool.ppu}</strong>
+        </p>
+      </div>
+      <div className="w-4/5 mx-auto pt-8">
+        <div class="  bg-base-100 ">
+          <div class="items-center text-center">
+            <form onSubmit={handlePurchase}>
+              <input
+                type="text"
+                value={user?.displayName}
+                disabled
+                class="my-3 input input-bordered w-full  "
+              />
+              <input
+                type="text"
+                value={user?.email}
+                disabled
+                class="my-3 input input-bordered w-full  "
+              />
+              <input
+                type="text"
+                name="address"
+                placeholder="Your Address"
+                class="my-3 input input-bordered w-full "
+              />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone"
+                class="my-3 input input-bordered w-full  "
+              />
 
-          <label class="label">
-            {quantityRef?.current?.value < parseInt(tool.minimumQuantity) && (
-              <span className="label-text-alt text-red-500">
-                Minimum order: {tool.minimumQuantity}
-              </span>
-            )}
-          </label>
-          <label class="label">
-            {quantityRef?.current?.value > parseInt(tool.maximumQuantity) && (
-              <span className="label-text-alt text-red-500">
-                Can not order more than: {tool.maximumQuantity}
-              </span>
-            )}
-          </label>
+              <label class="label">
+                <span class="label-text">
+                  Available quantity: {tool.maximumQuantity}
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">
+                  Enter how many you want
+                </span>
+              </label>
+              <input
+                name="orderQuantity"
+                ref={quantityRef}
+                onChange={handleDisable}
+                type="number"
+                class="my-3 input input-bordered w-full  "
+              />
 
-          <button
-            disabled={disable}
-            class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white  w-full max-w-xs"
-          >
-            Purchase
-          </button>
+              <label class="label">
+                {quantityRef?.current?.value <
+                  parseInt(tool.minimumQuantity) && (
+                  <span className="label-text-alt text-red-500">
+                    Minimum order: {tool.minimumQuantity}
+                  </span>
+                )}
+              </label>
+              <label class="label">
+                {quantityRef?.current?.value >
+                  parseInt(tool.maximumQuantity) && (
+                  <span className="label-text-alt text-red-500">
+                    Can not order more than: {tool.maximumQuantity}
+                  </span>
+                )}
+              </label>
+
+              <button
+                disabled={disable}
+                class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white  w-full "
+              >
+                Purchase
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -14,22 +14,22 @@ const Navbar = () => {
     <>
       
 
-      <li className="text-white">
+      <li className="text-accent">
         <Link to="/tools">Tools</Link>
       </li>
 
-      <li className="text-white">
+      <li className="text-accent">
         <Link to="/reviews">Reviews</Link>
       </li>
-      <li className="text-white">
+      <li className="text-accent">
         <Link to="/business">Business summary</Link>
       </li>
-      <li className="text-white">
+      <li className="text-accent">
         <Link to="/about">About</Link>
       </li>
-      <li className="text-white">
+      <li className="text-neutral">
         {user ? (
-          <button onClick={logout} className="btn btn-active btn-link ">
+          <button onClick={logout} className="btn btn-active btn-ghost ">
             sign out
           </button>
         ) : (
@@ -39,7 +39,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-primary px-12">
+    <div className="navbar  px-12">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -65,7 +65,7 @@ const Navbar = () => {
            {menuItem}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl text-white">Electric</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl text-primary">Electric</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
