@@ -31,8 +31,8 @@ const MyOrders = () => {
       .then((data) => setOrders(data));
   }, [user]);
   return (
-    <div class="overflow-x-auto">
-      <table class="table table-zebra w-full">
+    <div className="overflow-x-auto">
+      <table className="table table-zebra w-full">
         <thead>
           <tr>
             <th></th>
@@ -51,10 +51,10 @@ const MyOrders = () => {
               <td>{o.orderQuantity}</td>
               <td>{o.price}/u</td>
               <td>
-                <button class="btn btn-outline btn-error">Cancel</button>
+                <button className="btn btn-outline btn-error">Cancel</button>
               </td>
               <td>
-                <button class="btn btn-outline btn-info">Payment</button>
+                <button className="btn btn-outline btn-info">Payment</button>
               </td>
             </tr>
           ))}

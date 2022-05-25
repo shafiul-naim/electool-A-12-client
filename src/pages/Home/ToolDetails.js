@@ -63,48 +63,48 @@ const ToolDetails = () => {
     <div className="grid lg:grid-cols-2 sm:grid-rows-2 lg:h-screen my-5">
       <div className="w-1/2 mx-auto pt-8">
         <img src={tool.img} alt="..." className="max-w-1/2 rounded-lg " />
-        <h2 class="card-title mt-5 text-primary">{tool.name}</h2>
+        <h2 className="card-title mt-5 text-primary">{tool.name}</h2>
         <p className="mb-5">{tool.description}</p>
         <p className="text-xl">
           Price per unit: <strong>{tool.ppu}</strong>
         </p>
       </div>
       <div className="w-4/5 mx-auto pt-8">
-        <div class="  bg-base-100 ">
-          <div class="items-center text-center">
+        <div className="  bg-base-100 ">
+          <div className="items-center text-center">
             <form onSubmit={handlePurchase}>
               <input
                 type="text"
                 value={user?.displayName}
                 disabled
-                class="my-3 input input-bordered w-full  "
+                className="my-3 input input-bordered w-full  "
               />
               <input
                 type="text"
                 value={user?.email}
                 disabled
-                class="my-3 input input-bordered w-full  "
+                className="my-3 input input-bordered w-full  "
               />
               <input
                 type="text"
                 name="address"
                 placeholder="Your Address"
-                class="my-3 input input-bordered w-full "
+                className="my-3 input input-bordered w-full "
               />
               <input
                 type="text"
                 name="phone"
                 placeholder="Phone"
-                class="my-3 input input-bordered w-full  "
+                className="my-3 input input-bordered w-full  "
               />
 
-              <label class="label">
-                <span class="label-text">
+              <label className="label">
+                <span className="label-text">
                   Available quantity: {tool.maximumQuantity}
                 </span>
               </label>
-              <label class="label">
-                <span class="label-text">
+              <label className="label">
+                <span className="label-text">
                   Enter how many you want
                 </span>
               </label>
@@ -113,10 +113,10 @@ const ToolDetails = () => {
                 ref={quantityRef}
                 onChange={handleDisable}
                 type="number"
-                class="my-3 input input-bordered w-full  "
+                className="my-3 input input-bordered w-full  "
               />
 
-              <label class="label">
+              <label className="label">
                 {quantityRef?.current?.value <
                   parseInt(tool.minimumQuantity) && (
                   <span className="label-text-alt text-red-500">
@@ -124,7 +124,7 @@ const ToolDetails = () => {
                   </span>
                 )}
               </label>
-              <label class="label">
+              <label className="label">
                 {quantityRef?.current?.value >
                   parseInt(tool.maximumQuantity) && (
                   <span className="label-text-alt text-red-500">
@@ -135,7 +135,7 @@ const ToolDetails = () => {
 
               <button
                 disabled={disable}
-                class="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white  w-full "
+                className="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white  w-full "
               >
                 Purchase
               </button>

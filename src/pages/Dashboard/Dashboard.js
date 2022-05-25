@@ -3,15 +3,15 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div class="drawer drawer-mobile px-12">
-      <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content ">
+    <div className="drawer drawer-mobile px-12">
+      <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content ">
         <h2 className="text-5xl font-bold text-secondary">Dashboard</h2>
         <Outlet></Outlet>
       </div>
-      <div class="drawer-side">
-        <label for="dashboard-sidebar" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
+      <div className="drawer-side">
+        <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
             <Link to="/dashboard">My orders</Link>
@@ -21,6 +21,9 @@ const Dashboard = () => {
           </li>
           <li>
             <Link to="/dashboard/myprofile">My profile</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/user">All user</Link>
           </li>
         </ul>
       </div>
