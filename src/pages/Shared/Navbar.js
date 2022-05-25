@@ -27,6 +27,11 @@ const Navbar = () => {
       <li className="text-accent">
         <Link to="/about">About</Link>
       </li>
+      {
+          user &&  <li className="text-accent">
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      }
       <li className="text-neutral">
         {user ? (
           <button onClick={logout} className="btn btn-active btn-ghost ">

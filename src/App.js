@@ -11,6 +11,10 @@ import ToolDetails from "./pages/Home/ToolDetails";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Login/Signup";
 import RequireAuth from "./pages/Login/RequireAuth";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrders from "./pages/Dashboard/MyOrders";
+import AddReview from "./pages/Dashboard/AddReview";
+import MyProfile from "./pages/Dashboard/MyProfile";
 
 function App() {
   return (
@@ -29,6 +33,18 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path="review" element={<AddReview></AddReview>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+        </Route>
         <Route
           path="/business"
           element={<BusinessSummary></BusinessSummary>}
