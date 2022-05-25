@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const AddReview = () => {
-    return (
-        <div>
-            <h2>my review</h2>
-        </div>
-    );
+  return (
+    <div class="rating">
+      <input type="radio" name="rating-1" class="mask mask-star" />
+      <input type="radio" name="rating-1" class="mask mask-star" />
+      <input type="radio" name="rating-1" class="mask mask-star" />
+      <input type="radio" name="rating-1" class="mask mask-star" />
+      <input type="radio" name="rating-1" class="mask mask-star" />
+    </div>
+  );
 };
 
 export default AddReview;

@@ -10,7 +10,12 @@ const MyOrders = () => {
     const email = user.email;
     console.log(user);
     const url = `http://localhost:5000/orders?email=${email}`;
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user]);
@@ -28,16 +33,20 @@ const MyOrders = () => {
           </tr>
         </thead>
         <tbody>
-        {
-            order.map((o, index) => <tr key={o._id}>
-                <th>{index+1}</th>
-                <td>{o.productName}</td>
-                <td>{o.orderQuantity}</td>
-                <td>{o.price}/u</td>
-                <td><button class="btn btn-outline btn-error">Cancel</button></td>
-                <td><button class="btn btn-outline btn-info">Payment</button></td>
-              </tr>)
-        }
+          {order.map((o, index) => (
+            <tr key={o._id}>
+              <th>{index + 1}</th>
+              <td>{o.productName}</td>
+              <td>{o.orderQuantity}</td>
+              <td>{o.price}/u</td>
+              <td>
+                <button class="btn btn-outline btn-error">Cancel</button>
+              </td>
+              <td>
+                <button class="btn btn-outline btn-info">Payment</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
