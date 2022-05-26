@@ -23,7 +23,7 @@ import AddItem from "./pages/Dashboard/AddItem";
 
 function App() {
   return (
-    <div className=" px-12 max-w-7xl mx-auto">
+    <div className="">
       <Navbar></Navbar>
 
       <Routes>

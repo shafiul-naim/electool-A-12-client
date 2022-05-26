@@ -42,7 +42,7 @@ const Tool = ({ tool }) => {
         </p>
         <button
           onClick={() => navigateToToolDetails(_id)}
-          className="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white"
+          className="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white"
         >
           Purchase
         </button>

@@ -12,25 +12,25 @@ const Navbar = () => {
   };
   const menuItem = (
     <>
-      <li className="text-accent">
+      <li className="text-primary text-xl">
         <Link to="/tools">Tools</Link>
       </li>
 
-      <li className="text-accent">
+      <li className="text-primary text-xl">
         <Link to="/reviews">Reviews</Link>
       </li>
-      <li className="text-accent">
+      <li className="text-primary text-xl">
         <Link to="/business">Business summary</Link>
       </li>
-      <li className="text-accent">
+      <li className="text-primary text-xl">
         <Link to="/about">About</Link>
       </li>
       {user && (
-        <li className="text-accent">
+        <li className="text-primary text-xl">
           <Link to="/dashboard">Dashboard</Link>
         </li>
       )}
-      <li className="text-neutral">
+      <li className="text-neutral text-xl">
         {user ? (
           <div >
             <p className=" text-lg text-stone-500">{user.displayName}</p>
@@ -45,7 +45,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar  px-12 mx-auto">
+    <div className="navbar sticky top-0 z-50 px-12 mx-auto bg-gray-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -71,7 +71,7 @@ const Navbar = () => {
             {menuItem}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl text-primary">
+        <Link to="/" className="btn btn-ghost normal-case text-2xl font-bold text-secondary">
           Electool
         </Link>
       </div>
