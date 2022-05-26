@@ -32,9 +32,9 @@ const Navbar = () => {
       )}
       <li className="text-neutral">
         {user ? (
-          <div className="bg-stone-200">
-            <p className=" text-md text-neutral-500">{user.displayName}</p>
-            <button onClick={logout} className="btn btn-active btn-ghost text-red-500">
+          <div >
+            <p className=" text-lg text-stone-500">{user.displayName}</p>
+            <button onClick={logout} className="btn btn-outline  btn-ghost text-red-500">
               sign out
             </button>
           </div>

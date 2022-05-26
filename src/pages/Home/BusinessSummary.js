@@ -2,7 +2,7 @@ import React from 'react';
 
 const BusinessSummary = () => {
     return (
-        <div className='px-12'>
+        <div className=''>
             <h2>Business summary</h2>
         </div>
     );

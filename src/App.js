@@ -19,10 +19,11 @@ import Users from "./pages/Dashboard/Users";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAdmin from "./pages/Login/RequireAdmin";
+import AddItem from "./pages/Dashboard/AddItem";
 
 function App() {
   return (
-    <div className=" mx-auto">
+    <div className=" px-12 max-w-7xl mx-auto">
       <Navbar></Navbar>
 
       <Routes>
@@ -53,6 +54,14 @@ function App() {
             element={
               <RequireAdmin>
                 <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="additem"
+            element={
+              <RequireAdmin>
+                <AddItem></AddItem>
               </RequireAdmin>
             }
           ></Route>

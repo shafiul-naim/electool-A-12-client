@@ -25,7 +25,7 @@ const ToolDetails = () => {
 
     if (
       quantity < parseInt(tool.minimumQuantity) ||
-      quantity > parseInt(tool.maximumQuantity)
+      quantity > parseInt(tool.availableQuantity)
     ) {
       setDisable(true);
     } else {
@@ -100,7 +100,7 @@ const ToolDetails = () => {
 
               <label className="label">
                 <span className="label-text">
-                  Available quantity: {tool.maximumQuantity}
+                  Available quantity: {tool.availableQuantity}
                 </span>
               </label>
               <label className="label">
@@ -126,9 +126,9 @@ const ToolDetails = () => {
               </label>
               <label className="label">
                 {quantityRef?.current?.value >
-                  parseInt(tool.maximumQuantity) && (
+                  parseInt(tool.availableQuantity) && (
                   <span className="label-text-alt text-red-500">
-                    Can not order more than: {tool.maximumQuantity}
+                    Can not order more than: {tool.availableQuantity}
                   </span>
                 )}
               </label>

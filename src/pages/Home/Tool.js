@@ -2,28 +2,53 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Tool = ({ tool }) => {
-  const { _id ,name, img, description, minimumQuantity, maximumQuantity, ppu } = tool;
-
+  const {
+    _id,
+    name,
+    img,
+    description,
+    minimumQuantity,
+    availableQuantity,
+    ppu,
+  } = tool;
 
   const navigate = useNavigate();
   const navigateToToolDetails = (id) => {
     navigate(`/tool/${id}`);
   };
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl w-9/12 sm:w-full mx-auto">
+    <div className="card  bg-base-100 shadow-xl lg:w-10/12 lg:px-12 sm:w-full sm:px-2">
       <figure>
-        <img src={img} alt="Album" className=" lg:w-2/5 sm:w-full" />
+        <img src={img} alt="Album" className=" object-contain h-40 w-72" />
       </figure>
-      <div className="card-body lg:w-3/5 sm:w-full ">
-        <h2 className="card-title text-primary">{name}</h2>
-        <p className="">{description}</p>
-        <p className="text-xl">Price per unit: {ppu}</p>
-        <p className="text-xl">Minimum quantity: {minimumQuantity}</p>
-        <p className="text-xl">Available quantity: {maximumQuantity}</p>
-        <div className="card-actions justify-end">
-          <button onClick={() => navigateToToolDetails(_id)} className="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white">
-            Purchase
-          </button>
+      <div className="card-body">
+        <h2 className="card-title text-neutral">
+          {name}
+          <div className="badge badge-accent text-white">NEW</div>
+        </h2>
+        <p className="text-gray-500">{description}</p>
+        <p className="text-4xl font-bold text-neutral-focus text-opacity-90">
+          $ {ppu}
+        </p>
+        <p className="text-lg">
+          Minimum order quantity:{" "}
+          <span className="text-3xl text-neutral-focus">{minimumQuantity}</span>
+        </p>
+        <p className="text-lg">
+          Available quantity:{" "}
+          <span className="text-3xl text-neutral-focus">
+            {availableQuantity}
+          </span>
+        </p>
+        <button
+          onClick={() => navigateToToolDetails(_id)}
+          className="btn btn-primary bg-gradient-to-r from-secondary to-primary text-white"
+        >
+          Purchase
+        </button>
+        <div className="card-actions justify-end mt-3">
+          <div className="badge badge-outline">Electric</div>
+          <div className="badge badge-outline">Tools</div>
         </div>
       </div>
     </div>

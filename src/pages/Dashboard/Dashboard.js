@@ -5,31 +5,38 @@ import auth from "../../firebase.init";
 import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
-    const [user] = useAuthState(auth);
-    const [admin] = useAdmin(user);
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
-    <div className="drawer drawer-mobile px-12">
+    <div className="drawer drawer-mobile  mt-8">
       <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content ">
-        <h2 className="text-5xl font-bold text-secondary">Dashboard</h2>
+        
         <Outlet></Outlet>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side ">
         <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
+        <ul className="menu p-4 overflow-y-auto w-48 bg-gray-100 text-lg  text-neutral">
           {/* <!-- Sidebar content here --> */}
-          <li>
+          <li className="my-2 ">
             <Link to="/dashboard">My orders</Link>
           </li>
-          <li>
+          <li className="my-2">
             <Link to="/dashboard/review">Add a review</Link>
           </li>
-          <li>
+          <li className="my-2">
             <Link to="/dashboard/myprofile">My profile</Link>
           </li>
-          { admin && <li>
-            <Link to="/dashboard/user">All user</Link>
-          </li>}
+          {admin && (
+            <>
+              <li className="my-2">
+                <Link to="/dashboard/user">All user</Link>
+              </li>
+              <li className="my-2 text-lg ">
+                <Link to="/dashboard/additem">Add a Item</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
