@@ -16,6 +16,8 @@ import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReview from "./pages/Dashboard/AddReview";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import Users from "./pages/Dashboard/Users";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -58,6 +60,7 @@ function App() {
       </Routes>
 
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
