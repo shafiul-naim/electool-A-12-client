@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const ToolDetails = () => {
@@ -50,12 +51,13 @@ const ToolDetails = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(purchase),
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("order places successfully");
+        toast.success("order places successfully");
       });
   };
 

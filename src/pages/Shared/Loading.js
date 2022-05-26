@@ -2,9 +2,17 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center ">
-      <div className="w-24 h-24 border-l-2 border-gray-900 rounded-full animate-spin"></div>
-    </div>
+    <>
+      
+      <div className="flex items-center justify-center space-x-2 animate-bounce mt-48">
+        <div className="w-8 h-8 bg-blue-400 rounded-full"></div>
+        <div className="w-8 h-8 bg-green-400 rounded-full"></div>
+        <div className="w-8 h-8 bg-black rounded-full"></div>
+      </div>
+      <h2 className="text-2xl text-blue-500 text-center mt-6">
+        If It's keep loading  <span className="text-3xl "> please reload</span>
+      </h2>
+    </>
   );
 };
 

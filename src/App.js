@@ -20,6 +20,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAdmin from "./pages/Login/RequireAdmin";
 import AddItem from "./pages/Dashboard/AddItem";
+import DashboardIntro from "./pages/Dashboard/DashboardIntro";
+import ManageProducts from "./pages/Dashboard/ManageProducts";
 
 function App() {
   return (
@@ -46,7 +48,8 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<DashboardIntro></DashboardIntro>}></Route>
+          <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route
@@ -62,6 +65,14 @@ function App() {
             element={
               <RequireAdmin>
                 <AddItem></AddItem>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageproducts"
+            element={
+              <RequireAdmin>
+                <ManageProducts></ManageProducts>
               </RequireAdmin>
             }
           ></Route>

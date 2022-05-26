@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
@@ -44,6 +45,7 @@ const AddItem = () => {
     .then( result => {
         console.log(result);
     })
+    toast.success('Item added successfully')
 
     /* const img = data.img[0];
     console.log("img", img);
