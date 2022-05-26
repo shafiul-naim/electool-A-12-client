@@ -12,7 +12,7 @@ const Tools = () => {
     return (
         <div className='grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-8 sm:px-6'>
             {
-                tools.map(tool => <Tool key={tool._id} tool={tool}></Tool>)
+                tools.slice(-6).reverse().map(tool => <Tool key={tool._id} tool={tool}></Tool>)
             }
         </div>
     );

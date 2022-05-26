@@ -1,7 +1,9 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const AddItem = () => {
   const {
@@ -11,94 +13,138 @@ const AddItem = () => {
   } = useForm();
   const [user] = useAuthState(auth);
 
+  /*   const { data: tool, isLoading } = useQuery("tool", () =>
+    fetch("http://localhost:5000/tools").then((res) => res.json())
+  ); */
+
+  //   const imageStorageKey = "760f0cdbf1bab278fa3c8bacb7c49ce2";
+
   const onSubmit = async (data) => {
     console.log("data", data);
+
+    const tool = {
+      name: data.name,
+      description: data.description,
+      minimumQuantity: data.minimumQuantity,
+      ppu: data.ppu,
+      img: data.img,
+      availableQuantity: data.availableQuantity,
+    };
+
+    const url = `http://localhost:5000/tools`;
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(tool)
+    })
+    .then( res => res.json())
+    .then( result => {
+        console.log(result);
+    })
+
+    /* const img = data.img[0];
+    console.log("img", img);
+    const formData = new FormData();
+    const test = formData.append("img", img);
+    console.log("test", test);
+
+
+
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+    console.log("url", url); */
+
+    /*  fetch(url, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then( result => {
+        console.log('imgbb result', result)
+    }) */
   };
+
+  /*   if (isLoading) {
+    return <Loading></Loading>;
+  }
+ */
   return (
+    <div className="hero min-h-screen bg-neutral">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left">
+          <h1 className="lg:text-5xl  font-bold text-gray-100">Add a Item!</h1>
+          <p className="px-6 py-6 lg:text-2xl text-gray-300">
+            Add a product with proper information
+          </p>
+        </div>
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card-body">
+            <form
+              className="d-flex flex-column mb-3 w-75 mx-auto"
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <input
+                className="mb-3 rounded-pill p-2 border-0"
+                value={user?.email}
+                {...register("email")}
+              />
+              <input
+                placeholder="Tool Name"
+                className="mb-3 rounded-pill p-2 border-0"
+                required
+                {...register("name", { required: true, maxLength: 20 })}
+              />
+              <textarea
+                placeholder="Description"
+                className="mb-3 rounded-pill p-2 border-0"
+                required
+                {...register("description")}
+              />
+              <input
+                placeholder="Price per unit"
+                className="mb-3 rounded-pill p-2 border-0"
+                required
+                type="number"
+                {...register("ppu")}
+              />
+              <input
+                placeholder="Minimum order quantity"
+                className="mb-3 rounded-pill p-2 border-0"
+                type="number"
+                required
+                {...register("minimumQuantity")}
+              />
+              <input
+                placeholder="Available quantity"
+                className="mb-3 rounded-pill p-2 border-0"
+                required
+                {...register("availableQuantity")}
+              />
 
-<div className="hero min-h-screen bg-neutral">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="lg:text-5xl  font-bold text-gray-100">Add a Item!</h1>
-      <p className="px-6 py-6 lg:text-2xl text-gray-300">Add a product with proper information</p>
-    </div>
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <div className="card-body">
+              <input
+                className="mb-3 rounded-pill p-2 border-0"
+                placeholder="Photo URL"
+                required
+                type="text"
+                {...register("img")}
+              />
 
-      <form
-        className="d-flex flex-column mb-3 w-75 mx-auto"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <input
-          
-          className="mb-3 rounded-pill p-2 border-0"
-          value={user?.email}
-          
-          {...register("email")}
-        />
-        <input
-          placeholder="Tool Name"
-          className="mb-3 rounded-pill p-2 border-0"
-          required
-          {...register("name", { required: true, maxLength: 20 })}
-        />
-        <textarea
-          placeholder="Description"
-          className="mb-3 rounded-pill p-2 border-0"
-          required
-          {...register("description")}
-        />
-        <input
-          placeholder="Price per unit"
-          className="mb-3 rounded-pill p-2 border-0"
-          required
-          type="number"
-          {...register("ppu")}
-        />
-        <input
-          placeholder="Minimum order quantity"
-          className="mb-3 rounded-pill p-2 border-0"
-          type="number"
-          required
-          {...register("minimumQuantity")}
-        />
-        <input
-          placeholder="Available quantity"
-          className="mb-3 rounded-pill p-2 border-0"
-          required
-          {...register("availableQuantity")}
-        />
-       
-        <input
-          placeholder="Photo URL"
-          className="mb-3 rounded-pill p-2 border-0"
-          required
-          type="text"
-          {...register("img")}
-        />
-       
-       <input
+              <input
                 className="btn w-full max-w-xs text-white"
                 type="submit"
                 value="Add Item"
               />
-      </form>
-
-     
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-    
   );
 };
 
 export default AddItem;
-
-
-
 
 // {<form onSubmit={handleSubmit(onSubmit)}>
 //               <div className="form-control">
@@ -195,9 +241,9 @@ export default AddItem;
 //                 </label>
 //               </div>
 
-            //   <input
-            //     className="btn w-full max-w-xs text-white"
-            //     type="submit"
-            //     value="Add Item"
-            //   />
+//   <input
+//     className="btn w-full max-w-xs text-white"
+//     type="submit"
+//     value="Add Item"
+//   />
 //             </form>}
