@@ -55,21 +55,38 @@ const MyOrders = () => {
                 {o.totalPrice && !o.paid && (
                   <Link to={`/dashboard/payment/${o._id}`}>
                     {" "}
-                    <button className="btn btn-outline btn-warning">
-                      Payment
+                    <button className="btn btn-outline btn-warning">Pay</button>
+                  </Link>
+                )}
+                {o.price && o.paid && (
+                  <div>
+                    <p>
+                      <span className="text-success">Paid</span>
+                    </p>
+                    <p  className="text-neutral text-xs">
+                      Order id:{" "}
+                      <span className="text-neutral text-xs">{o.transactionId}</span>
+                    </p>
+                  </div>
+                )}
+              </td>
+
+              <td className="text-lg text-stone-500">
+                {o.totalPrice && !o.paid && (
+                  <Link to={`/dashboard`}>
+                    {" "}
+                    <button className="btn btn-outline btn-secondary">
+                      Cancel
                     </button>
                   </Link>
                 )}
                 {o.totalPrice && o.paid && (
-                  <span className="text-green-500">
-                  Paid
-                </span>
+                  <span className="text-green-500"></span>
                 )}
-              </td>
-              <td className="text-lg text-stone-500">
-                <button className="btn btn-outline btn-secondary">
+
+                {/* <button className="btn btn-outline btn-secondary">
                   Cancel
-                </button>
+                </button> */}
               </td>
             </tr>
           ))}
