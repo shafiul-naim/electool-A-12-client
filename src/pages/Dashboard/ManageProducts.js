@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
+import DeletingModal from "./DeletingModal";
 import ShowProducts from "./ShowProducts";
 
 const ManageProducts = () => {
+  const [deletingProduct, setDeletingProduct] = useState(null);
   const {
     data: products,
     isLoading,
@@ -19,6 +21,7 @@ const ManageProducts = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+
   return (
     <div>
       <h2>your products: {products.length}</h2>
@@ -34,38 +37,24 @@ const ManageProducts = () => {
           </thead>
           <tbody>
             {products.map((product, index) => (
-              <tr key={product._id}>
-                <th>{index + 1}</th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img src={product.img} alt="product" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{product.name}</div>
-                    </div>
-                  </div>
-                </td>
-                <td>{product.availableQuantity}</td>
-                <th>
-                <button className="btn btn-outline btn-ghost text-red-500">Delete</button>
-                </th>
-              </tr>
+              <ShowProducts
+                key={product._id}
+                product={product}
+                index={index}
+                refetch={refetch}
+                setDeletingProduct={setDeletingProduct}
+              ></ShowProducts>
             ))}
           </tbody>
-
-          <tfoot>
-          <tr>
-              <th></th>
-              <th>Product Name</th>
-              <th>Available quantity</th>
-              <th></th>
-            </tr>
-          </tfoot>
         </table>
       </div>
+      {deletingProduct && (
+        <DeletingModal
+          deletingProduct={deletingProduct}
+          refetch={refetch}
+          setDeletingProduct={setDeletingProduct}
+        ></DeletingModal>
+      )}
     </div>
   );
 };
