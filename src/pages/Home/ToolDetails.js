@@ -44,6 +44,7 @@ const ToolDetails = () => {
       address: event.target.address.value,
       phone: event.target.phone.value,
       orderQuantity: event.target.orderQuantity.value,
+      totalPrice: (tool.ppu * event.target.orderQuantity.value)
     };
     console.log(purchase);
 

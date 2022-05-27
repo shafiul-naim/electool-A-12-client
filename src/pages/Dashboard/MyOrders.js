@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const MyOrders = () => {
@@ -32,29 +32,44 @@ const MyOrders = () => {
   }, [user]);
   return (
     <div className="overflow-x-auto">
-      <table className="table table-zebra w-full">
+      <table className="table table-active w-full">
         <thead>
           <tr>
-            <th></th>
-            <th>Product Name</th>
-            <th>Ordered quantity</th>
-            <th>Price</th>
-            <th></th>
-            <th></th>
+            <th className="text-lg font-bold text-neutral"></th>
+            <th className="text-lg font-bold text-neutral">Product Name</th>
+            <th className="text-lg font-bold text-neutral">Ordered quantity</th>
+            <th className="text-lg font-bold text-neutral">Total Price</th>
+            <th className="text-lg font-bold text-neutral">Payment</th>
+            <th className="text-lg font-bold text-neutral">Cancel order</th>
           </tr>
         </thead>
         <tbody>
           {order.map((o, index) => (
             <tr key={o._id}>
               <th>{index + 1}</th>
-              <td>{o.productName}</td>
-              <td>{o.orderQuantity}</td>
-              <td>{o.price}/u</td>
-              <td>
-                <button className="btn btn-outline btn-error">Cancel</button>
+              <td className="text-lg text-stone-500">{o.productName}</td>
+              <td className="text-lg text-stone-500">{o.orderQuantity}</td>
+              <td className="text-lg text-stone-500">{o.totalPrice}</td>
+
+              <td className="text-lg text-stone-500">
+                {o.totalPrice && !o.paid && (
+                  <Link to={`/dashboard/payment/${o._id}`}>
+                    {" "}
+                    <button className="btn btn-outline btn-warning">
+                      Payment
+                    </button>
+                  </Link>
+                )}
+                {o.totalPrice && o.paid && (
+                  <span className="text-green-500">
+                  Paid
+                </span>
+                )}
               </td>
-              <td>
-                <button className="btn btn-outline btn-info">Payment</button>
+              <td className="text-lg text-stone-500">
+                <button className="btn btn-outline btn-secondary">
+                  Cancel
+                </button>
               </td>
             </tr>
           ))}
