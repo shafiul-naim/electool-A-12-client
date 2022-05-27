@@ -6,11 +6,11 @@ import Tools from './Tools';
 
 const Home = () => {
     return (
-        <div className=' px-12 max-w-7xl mx-auto'>
+        <div className=' '>
             <Banner></Banner>
             <Tools></Tools>
-            <Review></Review>
             <BusinessSummary></BusinessSummary>
+            <Review></Review>
         </div>
     );
 };

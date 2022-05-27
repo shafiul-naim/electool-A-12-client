@@ -44,7 +44,7 @@ const Tools = () => {
   } */
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-8 sm:px-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-8 sm:px-6 px-12 max-w-7xl mx-auto">
       {tools
         .slice(-6)
         .reverse()
