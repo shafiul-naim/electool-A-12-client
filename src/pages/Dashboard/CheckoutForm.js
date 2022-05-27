@@ -1,14 +1,20 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const CheckoutForm = ({ orders }) => {
   const stripe = useStripe();
-  console.log("stripe", stripe);
   const elements = useElements();
   const [cardError, setCardError] = useState("");
+  const [success, setSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
+  
   const { totalPrice } = orders;
+  const [user] = useAuthState(auth);
+  const name = user.displayName;
+  const email = user.email;
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -46,8 +52,35 @@ const CheckoutForm = ({ orders }) => {
     });
 
     setCardError(error?.message || "");
-    // setSuccess('');
     // setProcessing(true);
+
+    setSuccess('')
+
+    const {paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: {
+            card: card,
+            billing_details: {
+              name: name,
+              email: email
+            },
+          },
+        },
+      );
+
+      if(intentError){
+          setCardError(intentError?.message);
+         
+          
+      }
+      else{
+          setCardError('');
+          console.log(paymentIntent)
+          setSuccess('Your payment is completed!!')
+      }
+
+
   };
 
   return (
@@ -78,6 +111,7 @@ const CheckoutForm = ({ orders }) => {
         </button>
       </form>
       {cardError && <p className="text-red-500">{cardError}</p>}
+      {success && <p className="text-green-500">{success}</p>}
     </>
   );
 };
