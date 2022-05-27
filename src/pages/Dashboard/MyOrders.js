@@ -61,7 +61,7 @@ const MyOrders = () => {
                 {o.price && o.paid && (
                   <div>
                     <p>
-                      <span className="text-success">Paid</span>
+                      <span className="text-green-500 font-bold">Paid</span>
                     </p>
                     <p  className="text-neutral text-xs">
                       Order id:{" "}
