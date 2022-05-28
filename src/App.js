@@ -14,7 +14,6 @@ import RequireAuth from "./pages/Login/RequireAuth";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReview from "./pages/Dashboard/AddReview";
-import MyProfile from "./pages/Dashboard/MyProfile";
 import Users from "./pages/Dashboard/Users";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,6 +22,8 @@ import AddItem from "./pages/Dashboard/AddItem";
 import DashboardIntro from "./pages/Dashboard/DashboardIntro";
 import ManageProducts from "./pages/Dashboard/ManageProducts";
 import Payment from "./pages/Dashboard/Payment";
+import ManageOrders from "./pages/Dashboard/ManageOrders";
+import MyProfile from "./pages/Dashboard/MyProfile";
 
 function App() {
   return (
@@ -75,6 +76,14 @@ function App() {
             element={
               <RequireAdmin>
                 <ManageProducts></ManageProducts>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageorders"
+            element={
+              <RequireAdmin>
+                <ManageOrders></ManageOrders>
               </RequireAdmin>
             }
           ></Route>
