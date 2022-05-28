@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import DeletingOrderModal from "./DeletingOrderModal";
 
 const MyOrders = () => {
   const [order, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const [deletingOrder, setDeletingOrder] = useState(null);
 
   useEffect(() => {
     const email = user.email;
@@ -63,9 +65,11 @@ const MyOrders = () => {
                     <p>
                       <span className="text-green-500 font-bold">Paid</span>
                     </p>
-                    <p  className="text-neutral text-xs">
+                    <p className="text-neutral text-xs">
                       Order id:{" "}
-                      <span className="text-neutral text-xs">{o.transactionId}</span>
+                      <span className="text-neutral text-xs">
+                        {o.transactionId}
+                      </span>
                     </p>
                   </div>
                 )}
@@ -73,12 +77,13 @@ const MyOrders = () => {
 
               <td className="text-lg text-stone-500">
                 {o.totalPrice && !o.paid && (
-                  <Link to={`/dashboard`}>
-                    {" "}
-                    <button className="btn btn-outline btn-secondary">
-                      Cancel
-                    </button>
-                  </Link>
+                  <label
+                    onClick={() => setDeletingOrder(o)}
+                    for="delete-order-confirm-modal"
+                    class="btn btn-xs btn-error"
+                  >
+                    Cancel
+                  </label>
                 )}
                 {o.totalPrice && o.paid && (
                   <span className="text-green-500"></span>
@@ -92,6 +97,15 @@ const MyOrders = () => {
           ))}
         </tbody>
       </table>
+
+      {deletingOrder && (
+        <DeletingOrderModal
+          order={order}
+          setOrders={setOrders}
+          deletingOrder={deletingOrder}
+          setDeletingOrder={setDeletingOrder}
+        ></DeletingOrderModal>
+      )}
     </div>
   );
 };
