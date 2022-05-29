@@ -25,6 +25,7 @@ import Payment from "./pages/Dashboard/Payment";
 import ManageOrders from "./pages/Dashboard/ManageOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import Contactus from "./pages/Home/Contactus";
+import Ourblog from "./pages/Home/Ourblog";
 
 function App() {
   return (
@@ -95,6 +96,7 @@ function App() {
         ></Route>
         <Route path="/review" element={<Review></Review>}></Route>
         <Route path="/contactus" element={<Contactus></Contactus>}></Route>
+        <Route path="/blog" element={<Ourblog></Ourblog>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
