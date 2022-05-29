@@ -7,7 +7,7 @@ import blog2 from "../../images/hacksaws.jpg";
 const Ourblog = () => {
   return (
     <div className="max-w-7xl mx-auto  mt-48">
-      <div className="grid lg:grid-cols-2 md:grid-cols-1 h-96">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 ">
         <div className="p-2">
           <img src={blog} alt="" />
         </div>
