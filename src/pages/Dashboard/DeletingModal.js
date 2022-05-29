@@ -9,7 +9,7 @@ const DeletingModal = ({ deletingProduct, refetch, setDeletingProduct }) => {
  console.log("id",_id)
   
   const handleDelete = () => {
-    fetch(`https://shrouded-mountain-11163.herokuapp.com/tools/${_id}`, {
+    fetch(`http://localhost:5000/tools/${_id}`, {
         method: "DELETE",
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

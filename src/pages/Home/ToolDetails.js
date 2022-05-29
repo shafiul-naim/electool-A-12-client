@@ -11,7 +11,7 @@ const ToolDetails = () => {
   const [tool, setTool] = useState([]);
 
   useEffect(() => {
-    const url = `https://shrouded-mountain-11163.herokuapp.com/tools/${toolId}`;
+    const url = `http://localhost:5000/tools/${toolId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTool(data));
@@ -48,11 +48,11 @@ const ToolDetails = () => {
     };
     console.log(purchase);
 
-    fetch("https://shrouded-mountain-11163.herokuapp.com/orders", {
+    fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        // authorization: `Bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(purchase),
     })
