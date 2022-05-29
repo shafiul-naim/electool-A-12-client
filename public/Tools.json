@@ -4,7 +4,7 @@
     "name": "Wire Strippers",
     "description": "Wire strippers are plier-like tools used to remove the insulating outer sheath from cables in order to attach terminals or connectors to the central core via crimping or soldering. Some strippers also allow electricians to cut right through the copper or conduit in a wire or cable.",
     "img": "https://i.ibb.co/0BchHJy/wire-Stripper.jpg",
-    "minimumQuantity": "100",
+    "minimumQuantity": "50",
     "maximumQuantity": "500",
     "ppu": "500"
   },
@@ -13,8 +13,8 @@
     "name": "Insulated screwdrivers",
     "description": "Screwdrivers are one of the most traditional of tools but are still indispensable for most electricians who frequently require access to electrical containers sealed with screws. There are multiple sizes and shapes available for compatibility with the abundance of screw designs. ",
     "img": "https://i.ibb.co/KWbYQF6/screwdricvers.jpg",
-    "minimumQuantity": "100",
-    "maximumQuantity": "500",
+    "minimumQuantity": "30",
+    "maximumQuantity": "300",
     "ppu": "400"
   },
   {
@@ -22,8 +22,8 @@
     "name": " Insulated pliers",
     "description": "Pliers are another tool that has been with us for a long time. Their versatility means they can be used to accomplish a multitude of tasks requiring ‘torque’, working in a much more robust manner than would be possible with the use of bare hands alone.",
     "img": "https://i.ibb.co/KWbYQF6/screwdricvers.jpg",
-    "minimumQuantity": "100",
-    "maximumQuantity": "500",
+    "minimumQuantity": "25",
+    "maximumQuantity": "400",
     "ppu": "350"
   },
   {
@@ -32,7 +32,7 @@
     "description": "Electrical tape is used to insulate wires or other items that conduct electricity.It is self-adhesive and pressure-sensitive, built to resist abrasion, heat and liquids in order to protect the sensitive conducting core within electrical wiring.",
     "img": "https://i.ibb.co/dcjSPFY/elctric-tape.jpg",
     "minimumQuantity": "100",
-    "maximumQuantity": "500",
+    "maximumQuantity": "1200",
     "ppu": "200"
   },
   {
@@ -49,7 +49,7 @@
     "name": " Cable cutters",
     "description": "Cable cutters are a staple of every electrician’s tool kit. These versatile tools feature steel blades and cut through standard wiring easily. Stronger cable shears will make short work of even thicker cabling.",
     "img": "https://i.ibb.co/fxGQsCv/cable-cutters.jpg",
-    "minimumQuantity": "100",
+    "minimumQuantity": "70",
     "maximumQuantity": "500",
     "ppu": "300"
   }
