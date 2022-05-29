@@ -6,16 +6,15 @@ import blog2 from "../../images/hacksaws.jpg";
 
 const Ourblog = () => {
   return (
-    <div className="max-w-7xl mx-auto  mt-48 mb-28">
-      <div className="grid lg:grid-cols-2 md:grid-cols-1 ">
+    <div className="max-w-7xl mx-auto  mt-48">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 h-96">
         <div className="p-2">
           <img src={blog} alt="" />
         </div>
-
         <div className="grid grid-rows-2 px-6 gap-5">
           <div>
             <div className="flex justify-around">
-            <h2 className="text-primary text-2xl mb-3">Our Blog</h2>
+            <h2 className="text-primary text-5xl mb-3">Our Blog</h2>
             <button className="btn btn-outline btn-neutral btn-sm">
               See more
             </button>

@@ -23,7 +23,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery("profile", () =>
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://shrouded-mountain-11163.herokuapp.com/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -35,7 +35,7 @@ const MyProfile = () => {
   }
 
   // useEffect(() => {
-  //   const url = `http://localhost:5000/user/${email}`;
+  //   const url = `https://shrouded-mountain-11163.herokuapp.com/user/${email}`;
   //   fetch(url)
   //     .then((res) => res.json())
   //     .then((data) => setProfile(data));
@@ -51,7 +51,7 @@ const MyProfile = () => {
       linkedin: data.linkedin,
     };
 
-    fetch(`http://localhost:5000/profile/${email}`, {
+    fetch(`https://shrouded-mountain-11163.herokuapp.com/profile/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

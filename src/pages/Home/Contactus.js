@@ -3,7 +3,7 @@ import contact from '../../images/contact.jpg'
 
 const Contactus = () => {
   return (
-    <div className="hero min-h-screen bg-base-100">
+    <div className="hero min-h-screen bg-base-100 max-w-7xl mx-auto  mt-48">
       <div className="hero-content flex-col lg:flex-row">
        
         <div>

@@ -21,7 +21,7 @@ const AddReview = () => {
       rating: data.rating,
     };
 
-    const url = `http://localhost:5000/reviews`;
+    const url = `https://shrouded-mountain-11163.herokuapp.com/reviews`;
 
     fetch(url, {
       method: "POST",

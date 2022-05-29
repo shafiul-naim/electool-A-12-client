@@ -15,7 +15,7 @@ const AddItem = () => {
   const [user] = useAuthState(auth);
 
   /*   const { data: tool, isLoading } = useQuery("tool", () =>
-    fetch("http://localhost:5000/tools").then((res) => res.json())
+    fetch("https://shrouded-mountain-11163.herokuapp.com/tools").then((res) => res.json())
   ); */
 
   //   const imageStorageKey = "760f0cdbf1bab278fa3c8bacb7c49ce2";
@@ -32,7 +32,7 @@ const AddItem = () => {
       availableQuantity: data.availableQuantity,
     };
 
-    const url = `http://localhost:5000/tools`;
+    const url = `https://shrouded-mountain-11163.herokuapp.com/tools`;
 
     fetch(url, {
         method: "POST",

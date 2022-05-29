@@ -14,7 +14,7 @@ const ManageOrders = () => {
   useEffect(() => {
     const email = user.email;
     console.log(user);
-    const url = `http://localhost:5000/allOrders`;
+    const url = `https://shrouded-mountain-11163.herokuapp.com/allOrders`;
     fetch(url, {
       method: "GET",
       headers: {

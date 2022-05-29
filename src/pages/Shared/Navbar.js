@@ -13,13 +13,15 @@ const Navbar = () => {
   const menuItem = (
     <>
       
-
+      <li className="text-primary text-2xl">
+        <Link to="/tools">All Tools</Link>
+      </li>
       
       <li className="text-primary text-2xl">
         <Link to="/blogs">Blogs</Link>
       </li>
       <li className="text-primary text-2xl">
-        <Link to="/about">My Portfolio</Link>
+        <Link to="/myportfolio">My Portfolio</Link>
       </li>
       {user && (
         <li className="text-primary text-2xl">

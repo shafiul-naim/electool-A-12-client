@@ -18,7 +18,7 @@ const CheckoutForm = ({ orders }) => {
   const email = user.email;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://shrouded-mountain-11163.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -82,7 +82,7 @@ const CheckoutForm = ({ orders }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:5000/orders/${_id}`, {
+      fetch(`https://shrouded-mountain-11163.herokuapp.com/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

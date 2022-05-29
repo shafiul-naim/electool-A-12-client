@@ -26,6 +26,8 @@ import ManageOrders from "./pages/Dashboard/ManageOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import Contactus from "./pages/Home/Contactus";
 import Ourblog from "./pages/Home/Ourblog";
+import MyPortFolio from "./pages/Shared/MyPortFolio";
+import Blog from "./pages/Shared/Blog";
 
 function App() {
   return (
@@ -94,6 +96,8 @@ function App() {
           path="/business"
           element={<BusinessSummary></BusinessSummary>}
         ></Route>
+        <Route path='/blogs' element={<Blog></Blog>}></Route>
+        <Route path='/myportfolio' element={<MyPortFolio></MyPortFolio>}></Route>
         <Route path="/review" element={<Review></Review>}></Route>
         <Route path="/contactus" element={<Contactus></Contactus>}></Route>
         <Route path="/ourblog" element={<Ourblog></Ourblog>}></Route>
