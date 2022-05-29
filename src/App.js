@@ -96,7 +96,7 @@ function App() {
         ></Route>
         <Route path="/review" element={<Review></Review>}></Route>
         <Route path="/contactus" element={<Contactus></Contactus>}></Route>
-        <Route path="/blog" element={<Ourblog></Ourblog>}></Route>
+        <Route path="/ourblog" element={<Ourblog></Ourblog>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

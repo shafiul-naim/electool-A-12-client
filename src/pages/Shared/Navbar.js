@@ -12,34 +12,30 @@ const Navbar = () => {
   };
   const menuItem = (
     <>
-      <li className="text-primary text-xl">
-        <Link to="/tools">Tools</Link>
-      </li>
+      
 
-      <li className="text-primary text-xl">
-        <Link to="/reviews">Reviews</Link>
+      
+      <li className="text-primary text-2xl">
+        <Link to="/blogs">Blogs</Link>
       </li>
-      <li className="text-primary text-xl">
-        <Link to="/business">Business summary</Link>
-      </li>
-      <li className="text-primary text-xl">
-        <Link to="/about">About</Link>
+      <li className="text-primary text-2xl">
+        <Link to="/about">My Portfolio</Link>
       </li>
       {user && (
-        <li className="text-primary text-xl">
+        <li className="text-primary text-2xl">
           <Link to="/dashboard">Dashboard</Link>
         </li>
       )}
-      <li className="text-neutral text-xl">
+      <li className="text-neutral text-2xl">
         {user ? (
           <div >
-            <p className=" text-lg text-stone-500">{user.displayName}</p>
+            <p className=" text-xl text-stone-500">{user.displayName}</p>
             <button onClick={logout} className="btn btn-outline  btn-ghost text-red-500">
               sign out
             </button>
           </div>
         ) : (
-          <Link to="/login">login</Link>
+          <Link className=" text-xl text-stone-500" to="/login">login</Link>
         )}
       </li>
     </>
@@ -66,12 +62,12 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white"
+            className="menu menu-compact dropdown-content text-2xl mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white"
           >
             {menuItem}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-2xl font-bold text-secondary">
+        <Link to="/" className="btn btn-ghost normal-case text-4xl font-bold text-secondary">
           Electool
         </Link>
       </div>

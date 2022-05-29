@@ -82,8 +82,8 @@ const ManageOrders = () => {
                 {!o.paid && (
                   <label
                     onClick={() => setDeletingOrder(o)}
-                    for="delete-allOrder-confirm-modal"
-                    class="btn btn-xs btn-error"
+                    htmlFor="delete-allOrder-confirm-modal"
+                    className="btn btn-xs btn-error"
                   >
                     Cancel
                   </label>

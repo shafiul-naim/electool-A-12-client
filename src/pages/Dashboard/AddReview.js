@@ -11,7 +11,9 @@ const AddReview = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log("data", data);
+    console.log("data", data.rating);
+
+   
 
     const review = {
       name: data.name,
@@ -37,13 +39,13 @@ const AddReview = () => {
   };
 
   return (
-    <div class="hero min-h-screen bg-base-100">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="text-center lg:text-left">
-          <h1 class="text-3xl font-bold">Give us your valuable review</h1>
+    <div className=" min-h-screen bg-base-100">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left">
+          <h1 className="text-3xl font-bold">Give us your valuable review about us</h1>
         </div>
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div class="card-body">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card-body">
             <form
               className="d-flex flex-column mb-3 w-75 mx-auto"
               onSubmit={handleSubmit(onSubmit)}
@@ -66,6 +68,7 @@ const AddReview = () => {
                 {...register("rating", {
                   min: 1,
                   max: 5,
+                  
                 })}
               />
 

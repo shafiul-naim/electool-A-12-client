@@ -21,8 +21,8 @@ const ShowProducts = ({ product, refetch, index, setDeletingProduct }) => {
       <td>
         <label
           onClick={() => setDeletingProduct(product)}
-          for="delete-confirm-modal"
-          class="btn btn-xs btn-error"
+          htmlFor="delete-confirm-modal"
+          className="btn btn-xs btn-error"
         >
           Delete
         </label>
