@@ -18,7 +18,7 @@ const Blog = () => {
         </div>
       </div>
       <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
+        <div className="card-body bg-neutral text-white">
           <h2 className="card-title">
             What are the different ways to manage a state in a React
             application?
